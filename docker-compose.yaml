@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  frontend: 
+    build: .
+    command: gunicorn -b 0.0.0.0:31700 flask-live-chart:app --reload
+    environment: 
+      - PYTHONBUFFERED=True
+    ports: 
+      - "31700:31700"
+    volumes: 
+      - ./:/home/workdir
